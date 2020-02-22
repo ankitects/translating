@@ -1,0 +1,7 @@
+- [Getting Started](README.md)
+- [Translating Anki](anki/intro.md)
+  - [Core Interface](anki/core.md)
+  - [Desktop Interface](anki/desktop.md)
+  - [Manual](anki/manual.md)
+- [Translating AnkiMobile](ankimobile/intro.md)
+  - [Mobile Interface](ankimobile/mobile.md)
