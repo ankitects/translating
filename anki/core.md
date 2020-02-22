@@ -114,7 +114,7 @@ to read:
 ```
 due-for-new-card = { $number ->
   [one]   Nueva #{ $number }
- *[other] Nuevas #{ $amount }
+ *[other] Nuevas #{ $number }
  }
 ```
 
