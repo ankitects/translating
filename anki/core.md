@@ -73,6 +73,9 @@ The rest of the text means the following:
 - If the amount is `many`, show `{$amount} sekund`
 - If the amount is `other`, show `{$amount} sekundy`
 
+The definitions of few, many and other depend on
+[your language](https://unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html).
+
 The `*` character before other means that any unknown value should
 match `other`. Since in this example `few` is the same as `other`, the 
 text could thus be shortened to:
