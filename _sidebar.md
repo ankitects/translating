@@ -3,5 +3,6 @@
   - [Core Interface](anki/core.md)
   - [Desktop Interface](anki/desktop.md)
   - [Manual](anki/manual.md)
+  - [For Developers](anki/developers.md)
 - [Translating AnkiMobile](ankimobile/intro.md)
   - [Mobile Interface](ankimobile/mobile.md)
