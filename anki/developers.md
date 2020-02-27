@@ -4,7 +4,7 @@ When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.
 
 Anki's codebase currently uses a mix of gettext's `_())` and `ngettext()`
-functions, and Fluent's `col.backend.translate()` and `tr()`. We will be
+functions, and Fluent's `col.tr()` and `aqt.utils.tr()`. We will be
 gradually migrating away from gettext, so please use Fluent for any new
 strings you add.
 
@@ -100,28 +100,26 @@ them accessible in Python. To resolve a string, you can use the following
 code:
 
 ```
-from aqt.utils import tr
-from anki.rsbackend import FString
+from aqt.utils import tr, TR
 
-msg = tr(FString.ADDONS_YOU_HAVE_COUNT, count=3)
+msg = tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
 ```
 
 - Note how a SCREAMING_CASE constant has been automatically defined as part of
 the build process, allowing for code completion.
 - You can provide as many arguments as you need, as either strings,
 integers, or floats.
-- Code in qt can use the global `tr()` function, but code in pylib should
-use `col.backend.translate()` instead.
+- Code in qt can use the `aqt.utils.tr()` function, but code in pylib should
+use `col.tr()` instead.
 
 If you'd like to test out the strings in the Python repl, make sure to
 call set_lang() first.
 
 ```
 >>> from anki.lang import set_lang
->>> from anki.rsbackend import FString
->>> from aqt.utils import tr
+>>> from aqt.utils import tr, TR
 >>> set_lang("en", "")
->>> tr(FString.ADDONS_YOU_HAVE_COUNT, count=3)
+>>> tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
 'You have \u20683\u2069 add-ons.'
 ```
 
@@ -131,8 +129,8 @@ you can strip the characters off:
 
 ```
 >>> from anki.lang import without_unicode_isolation as nosep
->>> nosep(tr(FString.ADDONS_YOU_HAVE_COUNT, count=3))
+>>> nosep(tr(TR.ADDONS_YOU_HAVE_COUNT, count=3))
 'You have 3 add-ons.'
->>> nosep(tr(FString.ADDONS_YOU_HAVE_COUNT, count=1))
+>>> nosep(tr(TR.ADDONS_YOU_HAVE_COUNT, count=1))
 'You have 1 add-on.'
 ```
