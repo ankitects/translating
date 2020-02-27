@@ -3,10 +3,10 @@
 When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.
 
-Anki's codebase currently uses a mix of gettext's `_())` and `ngettext()`
-functions, and Fluent's `col.tr()` and `aqt.utils.tr()`. We will be
-gradually migrating away from gettext, so please use Fluent for any new
-strings you add.
+Anki's codebase currently uses a mix of gettext's `anki.lang._())` and
+`anki.lang.ngettext()` functions, and Fluent's `col.tr()` and
+`aqt.utils.tr()`. We will be gradually migrating away from gettext, so please
+use Fluent for any new strings you add.
 
 Please start by taking a look at the [core documentation](/anki/core.md) to see
 how strings are presented to translators. Note how the strings do not
@@ -92,7 +92,7 @@ addons-you-have-count = { $count ->
    }
 ```
 
-## Accessing the new String
+## Accessing the New String
 
 Once you've added one or more strings to the .ftl files, run `make develop` in
 the top level of the Anki repo, which will compile the new strings and make
