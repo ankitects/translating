@@ -3,7 +3,7 @@
 When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.
 
-Anki's codebase currently uses a mix of gettext's `anki.lang._())` and
+Anki's codebase currently uses a mix of gettext's `anki.lang._()` and
 `anki.lang.ngettext()` functions, and Fluent's `col.tr()` and
 `aqt.utils.tr()`. We will be gradually migrating away from gettext, so please
 use Fluent for any new strings you add.
