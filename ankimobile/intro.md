@@ -12,6 +12,6 @@ easiest place to start.
 If you have not signed up to the translation site yet, please see
 [Getting Started](./intro.md).
 
-Please start with the `core` module, which is [documented here](./core.md).
+Please start with the `core` module, which is [documented here](../anki/core.md).
 Once the `core` module is fully translated in your language, you can then
 move on to the `mobile` module, which is covered next.
