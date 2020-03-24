@@ -66,7 +66,7 @@ The first line is the unique identifier for this message - it can also be
 seen in the "CONTEXT" label near the comments.
 
 The rest of the text means the following:
- 
+
 - Check the value of amount
 - If the amount is `one`, show `{$amount} sekunda`
 - If the amount is `few`, show `{$amount} sekundy`
@@ -77,7 +77,7 @@ The definitions of few, many and other depend on
 [your language](https://unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html).
 
 The `*` character before other means that any unknown value should
-match `other`. Since in this example `few` is the same as `other`, the 
+match `other`. Since in this example `few` is the same as `other`, the
 text could thus be shortened to:
 
 ```
@@ -133,13 +133,49 @@ And then modify the template as required:
 
 ![](./advanced-plurals5.png#ss)
 
-
 ## Other Languages
 
 If you're not sure how something should be translated, you can click on the
 Locales tab on the right. You can see a summary of the translation on that
 screen, or click on a particular language to see how it has translated
 all its plural forms.
+
+## Special Characters
+
+When a translated string is more than one line long, please keep an eye
+out for lines that start with `.` or `[`. Strings can start with these characters
+on the first line, but if a translation stretches over multiple lines, these
+characters will cause problems.
+
+For example, the following is fine:
+
+```
+some-translation =
+  This is a translation that occurs
+  over ... two
+  or three lines.
+```
+
+But the following will cause problems, because the second line starts with a `[`,
+and the third starts with a `.`:
+
+```
+some-translation =
+  [This is a translation that occurs over
+  ...two
+  or three lines.]
+```
+
+When you need to use a `[` or `.` character at the start of a a line
+in a multi-line string, please escape it by wrapping it in `{"` and
+`"}` - for example:
+
+```
+some-translation =
+  {"["}This is a translation that occurs over
+  {"."}.. two
+  or three lines.]
+```
 
 ## Testing
 
