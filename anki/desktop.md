@@ -1,9 +1,9 @@
 # Desktop Interface
 
 The following text refers to the `desktop` module, which uses the legacy
-*gettext* system. The `desktop-ftl` module uses the new Fluent translation
+_gettext_ system. The `desktop-ftl` module uses the new Fluent translation
 system like the `core` module. For more information on working with
-Fluent, please see the [core](core.md) section.
+Fluent, please see the [core](/anki/core.md) section.
 
 ## Context
 
