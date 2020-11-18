@@ -3,10 +3,8 @@
 When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.
 
-Anki's codebase currently uses a mix of gettext's `anki.lang._()` and
-`anki.lang.ngettext()` functions, and Fluent's `col.tr()` and
-`aqt.utils.tr()`. We will be gradually migrating away from gettext, so please
-use Fluent for any new strings you add.
+Anki's codebase has recently migrated away from the old gettext system,
+and now only uses Fluent's `col.tr()` and `aqt.utils.tr()`.
 
 Please start by taking a look at the [core documentation](/anki/core.md) to see
 how strings are presented to translators. Note how the strings do not
@@ -23,10 +21,10 @@ or whether it is specific to the computer version (the `desktop-ftl` module).
 Add-ons are only supported by the computer version, so we'll want to use
 the `desktop-ftl` module in this example.
 
-- The `core` files are stored in `rslib/ftl/*.ftl`
-- The `desktop-ftl` files are stored in `qt/ftl/*.ftl`
+- The English `core` files are stored in `ftl/core`
+- The English `desktop-ftl` files are stored in `ftl/qt`
 
-We'll look for a file like `qt/ftl/addons.ftl`, and add one if no appropriate
+We'll look for a file like `ftl/qt/addons.ftl`, and add one if no appropriate
 one exists. Then we need to add the string to the file.
 
 Each string needs a key that uniquely identifies it. It should start with
@@ -61,8 +59,9 @@ addons-you-have-count = { $count ->
 This leaves the most control in the hands of the translators to be able
 to translate the sentence with a natural structure.
 
-You may find older translations in Anki's codebase that do something
-like:
+Please note that the bulk of the strings in the .ftl files were imported
+from the older gettext system, so some of them may not demonstrate best
+practice. The older system also encouraged constructs like:
 
 ```
 msg = "%s %d %s" % (_("Studied"), card_count, _("today"))
@@ -94,10 +93,9 @@ addons-you-have-count = { $count ->
 
 ## Accessing the New String
 
-Once you've added one or more strings to the .ftl files, run `make develop` in
-the top level of the Anki repo, which will compile the new strings and make
-them accessible in Python. To resolve a string, you can use the following
-code:
+Once you've added one or more strings to the .ftl files, run Anki in the source
+tree as usual, which will compile the new strings and make them accessible in
+Python/Typescript. To resolve a string, you can use the following code:
 
 ```
 from aqt.utils import tr, TR
@@ -106,11 +104,12 @@ msg = tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
 ```
 
 - Note how a SCREAMING_CASE constant has been automatically defined as part of
-the build process, allowing for code completion.
+  the build process, allowing for type checking.
 - You can provide as many arguments as you need, as either strings,
-integers, or floats.
+  integers, or floats.
 - Code in qt can use the `aqt.utils.tr()` function, but code in pylib should
-use `col.tr()` instead.
+  use `col.tr()` instead.
+- See ts/congrats for how strings can be looked up in Typescript.
 
 If you'd like to test out the strings in the Python repl, make sure to
 call set_lang() first.

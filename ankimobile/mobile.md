@@ -46,8 +46,7 @@ part will be replaced with some other value, such as `Cards: 10`, or
 special markers as they are, such as `カード: %d`.
 
 Sometimes the text will contain more than one replacement marker, like
-`%1$d
-of %2$d` to represent something like `2 of 5`. You can reorder the
+`%1$d of %2$d` to represent something like `2 of 5`. You can reorder the
 markers if it makes more sense in your language, eg `%2$dの%1$d` to
 represent something like `5の2`.
 
@@ -84,4 +83,3 @@ When testing the betas, if you notice that some text is not
 translatable, please report this on the support site so it can be fixed.
 
 Thank you again for your help!
-
