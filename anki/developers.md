@@ -17,12 +17,12 @@ As an example, imagine we want to add the string "You have x add-ons".
 
 To add a new translatable string to the codebase, we first need to identify
 whether it belongs in the `core` module (text likely to be used by all Anki clients),
-or whether it is specific to the computer version (the `desktop-ftl` module).
+or whether it is specific to the computer version (the `desktop` module).
 Add-ons are only supported by the computer version, so we'll want to use
-the `desktop-ftl` module in this example.
+the `desktop` module in this example.
 
 - The English `core` files are stored in `ftl/core`
-- The English `desktop-ftl` files are stored in `ftl/qt`
+- The English `desktop` files are stored in `ftl/qt`
 
 We'll look for a file like `ftl/qt/addons.ftl`, and add one if no appropriate
 one exists. Then we need to add the string to the file.
