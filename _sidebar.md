@@ -5,3 +5,4 @@
   - [Manual](anki/manual.md)
   - [For Developers](anki/developers.md)
 - [Translating AnkiMobile](ankimobile.md)
+- [Translating AnkiDroid](ankidroid.md)
