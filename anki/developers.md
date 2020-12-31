@@ -133,3 +133,26 @@ you can strip the characters off:
 >>> nosep(tr(TR.ADDONS_YOU_HAVE_COUNT, count=1))
 'You have 1 add-on.'
 ```
+
+## Add-ons
+
+Add-ons can make use of existing strings in Anki, but if you wish to add new
+strings, you'll need to add them to your add-on rather than Anki. How you approach
+translations in your add-on(s) is up to you:
+
+- If you don't care about translations, the simplest solution is to use plain strings.
+- The next-easiest option is to place all strings in a dict or python module,
+  and accept pull requests from users that add a new language. You can then
+  select the appropriate dict by looking at what anki.lang.currentLang is set
+  to.
+- If you want proper plural support, you'll want to consider using gettext,
+  though it is considerably more involved than the above solution. It requires
+  separate build steps to extract strings from your source and build compiled
+  versions of the strings. You can have translators email you a completed .po
+  file, or send you a PR. There are online translation services like Launchpad
+  and Crowdin that support gettext, but you would need to either manually upload
+  and download files, or spend some time setting up scripts to do so.
+
+Fluent is not currently recommended for add-ons. There is limited tooling
+support for it, and you would need to bundle the Fluent Python libraries with
+your add-on.
