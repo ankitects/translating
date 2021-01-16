@@ -134,6 +134,52 @@ you can strip the characters off:
 'You have 1 add-on.'
 ```
 
+## Repeated Content
+
+Sometimes you will need multiple translations that have some text shared between
+them. For example, the search code has a list of separate error message, such as:
+
+```
+search-invalid-added = Invalid search: 'added:' must be followed by a positive number of days.
+search-invalid-edited = Invalid search: 'edited:' must be followed by a positive number of days.
+```
+
+Since there are a lot of separate messages with the same prefix, we can split it off
+into a separate string:
+
+```
+search-invalid-search = Invalid search: { $reason }
+search-invalid-added = 'added:' must be followed by a positive number reason.
+search-invalid-edited = 'edited:' must be followed by a positive number of days.
+```
+
+The code can then compose the message from two separate entries. Note that we're
+using a Fluent variable in the outer string, as some languages may want to place
+the reason first, not incude a space after the colon, and so on.
+
+## Avoid HTML where possible
+
+Translators may not have any development experience, and HTML can be difficult to read
+and translate correctly. Prefer plain text where possible, and when HTML is required
+or would make things much clearer, consider using markdown instead (see the search
+translations for an example of how this is done).
+
+## Avoid Strings That Will Change
+
+Avoid doing things like listing out a series of options in a string, if there's any
+chance that list will change in the future. When the string later gets updated
+(and assuming people don't forget to update it), it will need to be given a new ID
+so that translators become aware of it, and doing so will mean all the existing
+translations get invalidated until a translator has a chance to update them, which
+may take months and sometimes even years.
+
+## Avoid Excess Strings
+
+Please try to be conservative with the number of new strings you add, as translator time
+is precious, and the more strings included in Anki, the more overwhelming it can be
+for translators. If you need to display an error message for some obscure error that most
+people will never hit, it probably doesn't need a translation.
+
 ## Add-ons
 
 Add-ons can make use of existing strings in Anki, but if you wish to add new
