@@ -8,7 +8,7 @@ To make changes, you will need an account. Please post a private message on the
 [support site](https://anki.tenderapp.com/discussions/private) with the following
 information, and we can get an account created for you:
 
-- The language(s) you'd like to translate.
+- The language or languages you'd like to translate.
 - Your email address. Please note that the email address you provide will
   be visible to people browsing [GitHub](https://github.com/ankitects/anki-desktop-i18n/commits/master).
 - The username you'd like to use (for example, 'bob5')
