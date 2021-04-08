@@ -7,9 +7,9 @@ Anki's codebase has recently migrated away from the old gettext system,
 and now only uses Fluent's `col.tr()` and `aqt.utils.tr()`.
 
 Please start by taking a look at the [core documentation](/anki/core.md) to see
-how strings are presented to translators. Note how the strings do not
-appear in the context of code, so comments are often required to help the
-translators understand what they are translating.
+how strings are presented to translators. Note how translators can not see the
+areas of the code where a string is used, so comments are often required to help
+the translators understand what they are translating.
 
 ## Adding New Strings
 
@@ -32,11 +32,13 @@ the same text as the filename, and then contain at least a few words separated
 by hyphens. For example, we might add the following to the file:
 
 ```
-addons-you-have-count = You have {$count} add-ons.
+addons-you-have-count = You have { $count } add-ons.
 ```
 
-The problem with this is that it will look strange when count is 1. We had
-better use a different string in the single add-on case:
+If `count` is 5, then the string will be "You have 5 add-ons.". This means
+it will look strange if `count` is 1 - we'd see "You have 1 add-ons." instead
+of "You have 1 add-on.". We'll need to add another string to cover the singular
+case:
 
 ```
 addons-you-have-count = You have { $count ->
@@ -45,14 +47,17 @@ addons-you-have-count = You have { $count ->
    }.
 ```
 
+The text above tells Fluent to use the first string in the singular case,
+and use the second string in all other cases.
+
 While an improvement, this can make it a bit hard for translators when the
 "you have" part needs to change depending on the number. So while more verbose,
-it is better to list out the alternatives in full where possible.
+it is better to list out the alternatives in full where possible:
 
 ```
 addons-you-have-count = { $count ->
     [one] You have 1 add-on.
-   *[other] You have {$count} add-ons.
+   *[other] You have { $count } add-ons.
    }
 ```
 
@@ -60,7 +65,7 @@ This leaves the most control in the hands of the translators to be able
 to translate the sentence with a natural structure.
 
 Please note that the bulk of the strings in the .ftl files were imported
-from the older gettext system, so some of them may not demonstrate best
+from the older gettext system, so many of them may not demonstrate best
 practice. The older system also encouraged constructs like:
 
 ```
@@ -87,38 +92,44 @@ Finally, we should also add one or more comments for translators:
 # Shown in the add-on management screen (Tools>Add-ons), in the title bar.
 addons-you-have-count = { $count ->
     [one] You have 1 add-on.
-   *[other] You have {$count} add-ons.
+   *[other] You have { $count } add-ons.
    }
 ```
 
 ## Accessing the New String
 
 Once you've added one or more strings to the .ftl files, run Anki in the source
-tree as usual, which will compile the new strings and make them accessible in
-Python/Typescript. To resolve a string, you can use the following code:
+tree as usual, which will compile the new strings, and make them accessible in
+Python/Typescript/Rust.
 
+### Python
+
+To resolve a string, you can use the following code:
+
+```python
+from aqt.utils import tr
+
+msg = tr.addons_you_have_count(count=3)
 ```
-from aqt.utils import tr, TR
 
-msg = tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
-```
-
-- Note how a SCREAMING_CASE constant has been automatically defined as part of
-  the build process, allowing for type checking.
-- You can provide as many arguments as you need, as either strings,
-  integers, or floats.
-- Code in qt can use the `aqt.utils.tr()` function, but code in pylib should
+- Note how a snake_case() function has been automatically defined as part of
+  the build process, with the correct arguments. These will be checked by
+  the tests, to ensure you don't accidentally use a missing string, or
+  omit an argument/pass the wrong one.
+- The generated function has a docstring based on the original text in the ftl
+  file, so if you're using an editor like PyCharm, you can hover the mouse over
+  a function to see the text it will resolve to.
+- Code in qt/ can use the `aqt.utils.tr()` function, but code in pylib should
   use `col.tr()` instead.
-- See ts/congrats for how strings can be looked up in Typescript.
 
 If you'd like to test out the strings in the Python repl, make sure to
 call set_lang() first.
 
-```
+```python
 >>> from anki.lang import set_lang
->>> from aqt.utils import tr, TR
+>>> from aqt.utils import tr
 >>> set_lang("en", "")
->>> tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
+>>> tr.addons_you_have_count(count=3)
 'You have \u20683\u2069 add-ons.'
 ```
 
@@ -126,13 +137,71 @@ Note the unicode characters that were inserted. These ensure that when left-to-r
 and right-to-left languages are mixed, the text flows correctly. For debugging,
 you can strip the characters off:
 
-```
+```python
 >>> from anki.lang import without_unicode_isolation as nosep
->>> nosep(tr(TR.ADDONS_YOU_HAVE_COUNT, count=3))
+>>> nosep(addons_you_have_count(count=3))
 'You have 3 add-ons.'
->>> nosep(tr(TR.ADDONS_YOU_HAVE_COUNT, count=1))
+>>> nosep(addons_you_have_count(count=1))
 'You have 1 add-on.'
 ```
+
+### TypeScript
+
+A global is available with automatically generated functions in camelCaps. Eg:
+
+```typescript
+import * as tr from "anki/i18n";
+
+console.log(tr.statisticsCardsPerDay({ count: 5 }));
+```
+
+The functions have docstrings that have the original text, so you can hover over
+them to see what the text says.
+
+To make use of the translations, they first need to be fetched from the backend.
+You'll need to specify the modules you want included, eg:
+
+```typescript
+import { setupI18n, ModuleName } from "anki/i18n";
+
+await setupI18n({ modules: [ModuleName.STATISTICS] });
+```
+
+### Rust
+
+The backend and collection structures have an I18n object in .tr, which can be
+called to get a translation, eg, in a Collection method:
+
+```rust
+println!("{}", self.tr.database_check_missing_templates(5))
+```
+
+The docstring contains the original translation, and your editor can
+show you the names of each argument.
+
+The return value is a Cow - if you need a String, you can call `.to_string()` or
+`.into()` on it.
+
+### Legacy style
+
+Anki versions before 2.1.44 used a single function and a separate constant instead.
+Eg, instead of
+
+```python
+from aqt.utils import tr
+
+msg = tr.addons_you_have_count(count=3)
+```
+
+they instead used:
+
+```python
+from aqt.utils import tr, TR
+
+msg = tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
+```
+
+This old style will still work for now, but will be removed in the future.
 
 ## Repeated Content
 
@@ -155,7 +224,7 @@ search-invalid-edited = 'edited:' must be followed by a positive number of days.
 
 The code can then compose the message from two separate entries. Note that we're
 using a Fluent variable in the outer string, as some languages may want to place
-the reason first, not incude a space after the colon, and so on.
+the reason first, not include a space after the colon, and so on.
 
 ## Avoid HTML where possible
 
