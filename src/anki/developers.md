@@ -4,7 +4,7 @@ When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.
 
 Anki's codebase has recently migrated away from the old gettext system,
-and now only uses Fluent's `col.tr()` and `aqt.utils.tr()`.
+and now only uses Fluent's `col.tr` and `aqt.utils.tr`.
 
 Please start by taking a look at the [core documentation](/anki/core.md) to see
 how strings are presented to translators. Note how translators can not see the
@@ -31,7 +31,7 @@ Each string needs a key that uniquely identifies it. It should start with
 the same text as the filename, and then contain at least a few words separated
 by hyphens. For example, we might add the following to the file:
 
-```
+```properties
 addons-you-have-count = You have { $count } add-ons.
 ```
 
@@ -40,7 +40,7 @@ it will look strange if `count` is 1 - we'd see "You have 1 add-ons." instead
 of "You have 1 add-on.". We'll need to add another string to cover the singular
 case:
 
-```
+```properties
 addons-you-have-count = You have { $count ->
     [one] 1 add-on
    *[other] {$count} add-ons
@@ -54,7 +54,7 @@ While an improvement, this can make it a bit hard for translators when the
 "you have" part needs to change depending on the number. So while more verbose,
 it is better to list out the alternatives in full where possible:
 
-```
+```properties
 addons-you-have-count = { $count ->
     [one] You have 1 add-on.
    *[other] You have { $count } add-ons.
@@ -68,7 +68,7 @@ Please note that the bulk of the strings in the .ftl files were imported
 from the older gettext system, so many of them may not demonstrate best
 practice. The older system also encouraged constructs like:
 
-```
+```python
 msg = "%s %d %s" % (_("Studied"), card_count, _("today"))
 ```
 
@@ -79,7 +79,7 @@ that takes a count argument.
 
 Finally, we should also add one or more comments for translators:
 
-```
+```properties
 ### Lines starting with three hashes are shown in the translation system
 ### for every string in the file.
 ### You can use it for a general summary of what a file is dealing with. Not
@@ -208,7 +208,7 @@ This old style will still work for now, but will be removed in the future.
 Sometimes you will need multiple translations that have some text shared between
 them. For example, the search code has a list of separate error message, such as:
 
-```
+```properties
 search-invalid-added = Invalid search: 'added:' must be followed by a positive number of days.
 search-invalid-edited = Invalid search: 'edited:' must be followed by a positive number of days.
 ```
@@ -216,7 +216,7 @@ search-invalid-edited = Invalid search: 'edited:' must be followed by a positive
 Since there are a lot of separate messages with the same prefix, we can split it off
 into a separate string:
 
-```
+```properties
 search-invalid-search = Invalid search: { $reason }
 search-invalid-added = 'added:' must be followed by a positive number reason.
 search-invalid-edited = 'edited:' must be followed by a positive number of days.

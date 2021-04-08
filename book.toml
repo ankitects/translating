@@ -1,0 +1,20 @@
+[book]
+authors = ["Ankitects Pty Ltd and contributors"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Anki Translation Guide"
+
+[build]
+create-missing = true
+
+[output.html]
+#no-section-label = true
+git-repository-url = "https://github.com/ankitects/translating"
+additional-css = ["custom.css"]
+
+# this breaks GHA when enabled - output goes into a 'html' subdir
+#[output.linkcheck]
+#optional = true
+#warning-policy = "warn"
+#follow-web-links = true
