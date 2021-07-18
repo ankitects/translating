@@ -211,12 +211,17 @@ and use the second string in all other cases.</p>
 &quot;you have&quot; part needs to change depending on the number. So while more verbose,
 it is better to list out the alternatives in full where possible:</p>
 <pre><code class="language-properties">addons-you-have-count = { $count -&gt;
-    [one] You have 1 add-on.
+    [one] You have { $count } add-on.
    *[other] You have { $count } add-ons.
    }
 </code></pre>
 <p>This leaves the most control in the hands of the translators to be able
 to translate the sentence with a natural structure.</p>
+<p>Note how the variable was used in the singular case as well. While in English
+$count will only be 1 in the singular case, in other languages, the
+singular case can be used for other numbers, such as 21. While translators
+could replace the <code>1</code> with <code>{ $count }</code> in their translation, they sometimes
+do not realise they need to, so using the variable makes mistakes less likely.</p>
 <p>Please note that the bulk of the strings in the .ftl files were imported
 from the older gettext system, so many of them may not demonstrate best
 practice. The older system also encouraged constructs like:</p>
@@ -238,7 +243,7 @@ that takes a count argument.</p>
 # This is a comment that will only apply to the following string. Eg:
 # Shown in the add-on management screen (Tools&gt;Add-ons), in the title bar.
 addons-you-have-count = { $count -&gt;
-    [one] You have 1 add-on.
+    [one] You have { $count } add-on.
    *[other] You have { $count } add-ons.
    }
 </code></pre>
