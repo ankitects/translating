@@ -56,13 +56,19 @@ it is better to list out the alternatives in full where possible:
 
 ```properties
 addons-you-have-count = { $count ->
-    [one] You have 1 add-on.
+    [one] You have { $count } add-on.
    *[other] You have { $count } add-ons.
    }
 ```
 
 This leaves the most control in the hands of the translators to be able
 to translate the sentence with a natural structure.
+
+Note how the variable was used in the singular case as well. While in English
+$count will only be 1 in the singular case, in other languages, the
+singular case can be used for other numbers, such as 21. While translators
+could replace the `1` with `{ $count }` in their translation, they sometimes
+do not realise they need to, so using the variable makes mistakes less likely.
 
 Please note that the bulk of the strings in the .ftl files were imported
 from the older gettext system, so many of them may not demonstrate best
@@ -91,7 +97,7 @@ Finally, we should also add one or more comments for translators:
 # This is a comment that will only apply to the following string. Eg:
 # Shown in the add-on management screen (Tools>Add-ons), in the title bar.
 addons-you-have-count = { $count ->
-    [one] You have 1 add-on.
+    [one] You have { $count } add-on.
    *[other] You have { $count } add-ons.
    }
 ```
