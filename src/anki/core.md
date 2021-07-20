@@ -12,7 +12,7 @@ can be seen [here](https://i18n.ankiweb.net/en-GB/core/).
 
 ## Simple Replacements
 
-![](./simple-replacement.png#ss)
+![](./simple-replacement@2x.png)
 
 When the text is a simple string, all you need to do is write the text in your
 native language and click Save (or press the Enter key).
@@ -25,7 +25,7 @@ as to where it is used or what it is trying to represent.
 
 ## Variables
 
-![](./variable.png#ss)
+![](./variable@2x.png)
 
 When you see `{$something}` in the English text, it means that that text will
 be replaced with something else. You can change the position of `{$something}`
@@ -41,7 +41,7 @@ Many languages change words depending on number. For example, English uses
 
 Some of the strings to translate will look like this:
 
-![](./simple-plurals.png#ss)
+![](./simple-plurals@2x.png)
 
 In the top part, you can see there are two forms for English - the `one`
 case (second), and the `other` case (seconds).
@@ -60,7 +60,7 @@ The translation website supports an advanced mode for when you need more
 flexibility. You can access the advanced mode by clicking on the FTL icon
 on the bottom left. The previous example then looks like this:
 
-![](./advanced-plurals.png#ss)
+![](./advanced-plurals@2x.png)
 
 The first line is the unique identifier for this message - it can also be
 seen in the "CONTEXT" label near the comments.
@@ -106,7 +106,7 @@ doesn't use plurals in this case, but other languages may need to.
 
 If you were translating this into Spanish, you'd see the following screen:
 
-![](./advanced-plurals2.png#ss)
+![](./advanced-plurals2@2x.png)
 
 To add a plural form, click the FTL button, and then change the text
 to read:
@@ -123,15 +123,15 @@ as well, but only a small part needs to change. When translating to Polish,
 the "used by" portion needs to change as well. So the default editing
 screen is not sufficient:
 
-![](./advanced-plurals3.png#ss)
+![](./advanced-plurals3@2x.png)
 
 To fix this, we click on the FTL button to get a blank template:
 
-![](./advanced-plurals4.png#ss)
+![](./advanced-plurals4@2x.png)
 
 And then modify the template as required:
 
-![](./advanced-plurals5.png#ss)
+![](./advanced-plurals5@2x.png)
 
 ## Other Languages
 

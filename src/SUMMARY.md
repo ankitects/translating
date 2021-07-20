@@ -1,6 +1,6 @@
 # Summary
 
-- [Getting Started](./README.md)
+- [Getting Started](./intro.md)
 - [Translating Anki](./anki/intro.md)
   - [Core Interface](./anki/core.md)
   - [Desktop Interface](./anki/desktop.md)
