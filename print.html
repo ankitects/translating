@@ -4,51 +4,31 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Anki Translation Guide</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
-
-
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
         <link rel="stylesheet" href="custom.css">
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -99,7 +79,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="anki/core.html"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="anki/core.html"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -124,33 +104,26 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Anki Translation Guide</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                         <a href="https://github.com/ankitects/translating" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -158,8 +131,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -186,14 +157,14 @@ be visible to people browsing <a href="https://github.com/ankitects/anki-desktop
 <li>Please include the following text in your message: &quot;I license any translations I contribute under the <a href="https://opensource.org/licenses/BSD-3-Clause">3-clause
 BSD license</a>.&quot;</li>
 </ul>
-<h1 id="translating-ankis-user-interface"><a class="header" href="#translating-ankis-user-interface">Translating Anki's User Interface</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="translating-ankis-user-interface"><a class="header" href="#translating-ankis-user-interface">Translating Anki's User Interface</a></h1>
 <p>Anki's translations are divided up into two parts:</p>
 <ul>
 <li>The <a href="anki/./core.html">core module</a> contains text usable on all Anki platforms.</li>
 <li>The <a href="anki/./desktop.html">desktop module</a> contains text only used in the computer version
 of Anki.</li>
 </ul>
-<h1 id="core-interface"><a class="header" href="#core-interface">Core Interface</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="core-interface"><a class="header" href="#core-interface">Core Interface</a></h1>
 <p>The <code>core</code> module in the <a href="https://i18n.ankiweb.net/projects">translation site</a>
 uses a translations system called <a href="https://projectfluent.org/">Fluent</a>. It is
 a recently-developed system that makes it easier for translators to deal with
@@ -203,7 +174,7 @@ with translation.</p>
 focusing on a particular topic, such as scheduling, deck options, and so on, as
 can be seen <a href="https://i18n.ankiweb.net/en-GB/core/">here</a>.</p>
 <h2 id="simple-replacements"><a class="header" href="#simple-replacements">Simple Replacements</a></h2>
-<p><img src="anki/./simple-replacement.png#ss" alt="" /></p>
+<p><img src="anki/./simple-replacement@2x.png" alt="" /></p>
 <p>When the text is a simple string, all you need to do is write the text in your
 native language and click Save (or press the Enter key).</p>
 <p>Under the English text, many strings will contain a comment to help you understand
@@ -211,7 +182,7 @@ where the string is being used, or to give an example of how it appears.</p>
 <p>&quot;Context&quot; is the short name for this string, and may sometimes give you a hint
 as to where it is used or what it is trying to represent.</p>
 <h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
-<p><img src="anki/./variable.png#ss" alt="" /></p>
+<p><img src="anki/./variable@2x.png" alt="" /></p>
 <p>When you see <code>{$something}</code> in the English text, it means that that text will
 be replaced with something else. You can change the position of <code>{$something}</code>
 in your translation, but please don't change the text inside - you should not
@@ -222,7 +193,7 @@ translation.</p>
 <p>Many languages change words depending on number. For example, English uses
 &quot;1 cat&quot;, but &quot;3 cats&quot;.</p>
 <p>Some of the strings to translate will look like this:</p>
-<p><img src="anki/./simple-plurals.png#ss" alt="" /></p>
+<p><img src="anki/./simple-plurals@2x.png" alt="" /></p>
 <p>In the top part, you can see there are two forms for English - the <code>one</code>
 case (second), and the <code>other</code> case (seconds).</p>
 <p>The bottom section shows the translation in Polish, which has four different
@@ -235,7 +206,7 @@ plural forms will only need to enter in a translation once.</p>
 <p>The translation website supports an advanced mode for when you need more
 flexibility. You can access the advanced mode by clicking on the FTL icon
 on the bottom left. The previous example then looks like this:</p>
-<p><img src="anki/./advanced-plurals.png#ss" alt="" /></p>
+<p><img src="anki/./advanced-plurals@2x.png" alt="" /></p>
 <p>The first line is the unique identifier for this message - it can also be
 seen in the &quot;CONTEXT&quot; label near the comments.</p>
 <p>The rest of the text means the following:</p>
@@ -270,7 +241,7 @@ structure of the original English string.</p>
 new cards with a number, such as &quot;New #1&quot;, or &quot;New #532&quot;. The English
 doesn't use plurals in this case, but other languages may need to.</p>
 <p>If you were translating this into Spanish, you'd see the following screen:</p>
-<p><img src="anki/./advanced-plurals2.png#ss" alt="" /></p>
+<p><img src="anki/./advanced-plurals2@2x.png" alt="" /></p>
 <p>To add a plural form, click the FTL button, and then change the text
 to read:</p>
 <pre><code>due-for-new-card = { $number -&gt;
@@ -282,11 +253,11 @@ to read:</p>
 as well, but only a small part needs to change. When translating to Polish,
 the &quot;used by&quot; portion needs to change as well. So the default editing
 screen is not sufficient:</p>
-<p><img src="anki/./advanced-plurals3.png#ss" alt="" /></p>
+<p><img src="anki/./advanced-plurals3@2x.png" alt="" /></p>
 <p>To fix this, we click on the FTL button to get a blank template:</p>
-<p><img src="anki/./advanced-plurals4.png#ss" alt="" /></p>
+<p><img src="anki/./advanced-plurals4@2x.png" alt="" /></p>
 <p>And then modify the template as required:</p>
-<p><img src="anki/./advanced-plurals5.png#ss" alt="" /></p>
+<p><img src="anki/./advanced-plurals5@2x.png" alt="" /></p>
 <h2 id="other-languages"><a class="header" href="#other-languages">Other Languages</a></h2>
 <p>If you're not sure how something should be translated, you can click on the
 Locales tab on the right. You can see a summary of the translation on that
@@ -330,23 +301,23 @@ that text is not appearing properly in a beta (such as two labels
 overlapping), please report the issue on the support site.</p>
 <p>When testing the betas, if you notice that some text is not
 translatable, please report this on the support site so it can be fixed.</p>
-<h1 id="desktop-interface"><a class="header" href="#desktop-interface">Desktop Interface</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="desktop-interface"><a class="header" href="#desktop-interface">Desktop Interface</a></h1>
 <p>The majority of Anki's interface is now included in the <code>core</code> module. <code>desktop</code>
 contains some strings specific to the computer version, such add-ons. The strings
 were mostly automatically migrated from Anki's old translation system, so there
 may be some strings in core that only apply to the computer version, or vice versa.</p>
-<h1 id="the-manual"><a class="header" href="#the-manual">The Manual</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-manual"><a class="header" href="#the-manual">The Manual</a></h1>
 <p>Translating the manual is trickier than translating Anki's interface.</p>
 <p>If you're a fairly technical user, you can fork the manual's repo,
 and translate one or more of
 <a href="https://github.com/ankitects/anki-manual">the manual's text files</a>.</p>
 <p>After translating at least one file, please get in touch.</p>
-<h1 id="for-developers"><a class="header" href="#for-developers">For Developers</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="for-developers"><a class="header" href="#for-developers">For Developers</a></h1>
 <p>When adding user-visible strings to Anki's codebase, extra work is required
 to make the strings translatable.</p>
 <p>Anki's codebase has recently migrated away from the old gettext system,
 and now only uses Fluent's <code>col.tr</code> and <code>aqt.utils.tr</code>.</p>
-<p>Please start by taking a look at the <a href="anki//anki/core.html">core documentation</a> to see
+<p>Please start by taking a look at the <a href="anki/./core.html">core documentation</a> to see
 how strings are presented to translators. Note how translators can not see the
 areas of the code where a string is used, so comments are often required to help
 the translators understand what they are translating.</p>
@@ -550,7 +521,7 @@ and download files, or spend some time setting up scripts to do so.</li>
 <p>Fluent is not currently recommended for add-ons. There is limited tooling
 support for it, and you would need to bundle the Fluent Python libraries with
 your add-on.</p>
-<h1 id="ankimobile"><a class="header" href="#ankimobile">AnkiMobile</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ankimobile"><a class="header" href="#ankimobile">AnkiMobile</a></h1>
 <p>AnkiMobile's translations are divided into two parts:</p>
 <ul>
 <li>The <code>core</code> module contains text common to both the computer version
@@ -559,7 +530,7 @@ and AnkiMobile.</li>
 </ul>
 <p>If you have not signed up to the translation site yet, please see
 <a href="./intro.html">Getting Started</a>.</p>
-<p>Please start with the <code>core</code> module, which is <a href="../anki/core.html">documented here</a>.
+<p>Please start with the <code>core</code> module, which is <a href="./anki/core.html">documented here</a>.
 Once the <code>core</code> module is mostly translated in your language, you can then
 move on to the <code>mobile</code> module.</p>
 <p>When translations are nearing completion, please reach out on the support site,
@@ -567,14 +538,14 @@ as new languages need to be manually added to the build process.</p>
 <p>Once a new language has been added, your translations will be visible in
 subsequent beta builds and app store releases. Please give the betas a try, so
 you can see how your translations appear in the app. If you're not already a
-beta tester, please <a href="https://docs.ankimobile.net/#/beta-testing">request an invite</a>
+beta tester, please <a href="https://docs.ankimobile.net/beta-testing.html">request an invite</a>
 on the support site.</p>
 <p>When translating, please try to keep the translations about the same
 length as the original English text. If it is not possible, and you find
 that text is not appearing properly in a beta (such as two labels
 overlapping), please report the issue on the support site.</p>
 <p>Thank you again for your help!</p>
-<h1 id="translating-ankidroid"><a class="header" href="#translating-ankidroid">Translating AnkiDroid</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="translating-ankidroid"><a class="header" href="#translating-ankidroid">Translating AnkiDroid</a></h1>
 <p>AnkiDroid has its own translation site:</p>
 <p><a href="https://github.com/ankidroid/Anki-Android/wiki/Translating-AnkiDroid">https://github.com/ankidroid/Anki-Android/wiki/Translating-AnkiDroid</a></p>
 <p>Work is currently underway to integrate Anki's <code>core</code> module and its translations
@@ -584,59 +555,31 @@ into AnkiDroid, but for now, AnkiDroid only uses its own translations.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
-
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-        
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
-
     </body>
 </html>

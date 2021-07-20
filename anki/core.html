@@ -4,49 +4,30 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Core Interface - Anki Translation Guide</title>
-        
-        
-
-
         <!-- Custom HTML head -->
         
-
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="../favicon.svg">
-        
-        
         <link rel="shortcut icon" href="../favicon.png">
-        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        
         <link rel="stylesheet" href="../css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="../fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
         <link rel="stylesheet" href="../custom.css">
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -97,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../anki/core.html" class="active"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="../anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="../anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="../anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="../ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="../ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../intro.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../anki/core.html" class="active"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="../anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="../anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="../anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="../ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="../ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -122,33 +103,26 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">Anki Translation Guide</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                         <a href="https://github.com/ankitects/translating" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -156,8 +130,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -179,7 +151,7 @@ with translation.</p>
 focusing on a particular topic, such as scheduling, deck options, and so on, as
 can be seen <a href="https://i18n.ankiweb.net/en-GB/core/">here</a>.</p>
 <h2 id="simple-replacements"><a class="header" href="#simple-replacements">Simple Replacements</a></h2>
-<p><img src="./simple-replacement.png#ss" alt="" /></p>
+<p><img src="./simple-replacement@2x.png" alt="" /></p>
 <p>When the text is a simple string, all you need to do is write the text in your
 native language and click Save (or press the Enter key).</p>
 <p>Under the English text, many strings will contain a comment to help you understand
@@ -187,7 +159,7 @@ where the string is being used, or to give an example of how it appears.</p>
 <p>&quot;Context&quot; is the short name for this string, and may sometimes give you a hint
 as to where it is used or what it is trying to represent.</p>
 <h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
-<p><img src="./variable.png#ss" alt="" /></p>
+<p><img src="./variable@2x.png" alt="" /></p>
 <p>When you see <code>{$something}</code> in the English text, it means that that text will
 be replaced with something else. You can change the position of <code>{$something}</code>
 in your translation, but please don't change the text inside - you should not
@@ -198,7 +170,7 @@ translation.</p>
 <p>Many languages change words depending on number. For example, English uses
 &quot;1 cat&quot;, but &quot;3 cats&quot;.</p>
 <p>Some of the strings to translate will look like this:</p>
-<p><img src="./simple-plurals.png#ss" alt="" /></p>
+<p><img src="./simple-plurals@2x.png" alt="" /></p>
 <p>In the top part, you can see there are two forms for English - the <code>one</code>
 case (second), and the <code>other</code> case (seconds).</p>
 <p>The bottom section shows the translation in Polish, which has four different
@@ -211,7 +183,7 @@ plural forms will only need to enter in a translation once.</p>
 <p>The translation website supports an advanced mode for when you need more
 flexibility. You can access the advanced mode by clicking on the FTL icon
 on the bottom left. The previous example then looks like this:</p>
-<p><img src="./advanced-plurals.png#ss" alt="" /></p>
+<p><img src="./advanced-plurals@2x.png" alt="" /></p>
 <p>The first line is the unique identifier for this message - it can also be
 seen in the &quot;CONTEXT&quot; label near the comments.</p>
 <p>The rest of the text means the following:</p>
@@ -246,7 +218,7 @@ structure of the original English string.</p>
 new cards with a number, such as &quot;New #1&quot;, or &quot;New #532&quot;. The English
 doesn't use plurals in this case, but other languages may need to.</p>
 <p>If you were translating this into Spanish, you'd see the following screen:</p>
-<p><img src="./advanced-plurals2.png#ss" alt="" /></p>
+<p><img src="./advanced-plurals2@2x.png" alt="" /></p>
 <p>To add a plural form, click the FTL button, and then change the text
 to read:</p>
 <pre><code>due-for-new-card = { $number -&gt;
@@ -258,11 +230,11 @@ to read:</p>
 as well, but only a small part needs to change. When translating to Polish,
 the &quot;used by&quot; portion needs to change as well. So the default editing
 screen is not sufficient:</p>
-<p><img src="./advanced-plurals3.png#ss" alt="" /></p>
+<p><img src="./advanced-plurals3@2x.png" alt="" /></p>
 <p>To fix this, we click on the FTL button to get a blank template:</p>
-<p><img src="./advanced-plurals4.png#ss" alt="" /></p>
+<p><img src="./advanced-plurals4@2x.png" alt="" /></p>
 <p>And then modify the template as required:</p>
-<p><img src="./advanced-plurals5.png#ss" alt="" /></p>
+<p><img src="./advanced-plurals5@2x.png" alt="" /></p>
 <h2 id="other-languages"><a class="header" href="#other-languages">Other Languages</a></h2>
 <p>If you're not sure how something should be translated, you can click on the
 Locales tab on the right. You can see a summary of the translation on that
@@ -311,67 +283,38 @@ translatable, please report this on the support site so it can be fixed.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
                             <a rel="prev" href="../anki/intro.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
-
-                        
                             <a rel="next" href="../anki/desktop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
                     <a rel="prev" href="../anki/intro.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
-
-                
                     <a rel="next" href="../anki/desktop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-
     </body>
 </html>
