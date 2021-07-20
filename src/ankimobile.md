@@ -9,7 +9,7 @@ AnkiMobile's translations are divided into two parts:
 If you have not signed up to the translation site yet, please see
 [Getting Started](./intro.md).
 
-Please start with the `core` module, which is [documented here](../anki/core.md).
+Please start with the `core` module, which is [documented here](./anki/core.md).
 Once the `core` module is mostly translated in your language, you can then
 move on to the `mobile` module.
 
@@ -19,7 +19,7 @@ as new languages need to be manually added to the build process.
 Once a new language has been added, your translations will be visible in
 subsequent beta builds and app store releases. Please give the betas a try, so
 you can see how your translations appear in the app. If you're not already a
-beta tester, please [request an invite](https://docs.ankimobile.net/#/beta-testing)
+beta tester, please [request an invite](https://docs.ankimobile.net/beta-testing.html)
 on the support site.
 
 When translating, please try to keep the translations about the same
