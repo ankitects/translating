@@ -156,7 +156,7 @@ you can strip the characters off:
 A global is available with automatically generated functions in camelCaps. Eg:
 
 ```typescript
-import * as tr from "anki/i18n";
+import * as tr from "../lib/ftl";
 
 console.log(tr.statisticsCardsPerDay({ count: 5 }));
 ```
@@ -168,7 +168,7 @@ To make use of the translations, they first need to be fetched from the backend.
 You'll need to specify the modules you want included, eg:
 
 ```typescript
-import { setupI18n, ModuleName } from "anki/i18n";
+import { setupI18n, ModuleName } from "../lib/i18n";
 
 await setupI18n({ modules: [ModuleName.STATISTICS] });
 ```
