@@ -430,7 +430,7 @@ you can strip the characters off:</p>
 </code></pre>
 <h3 id="typescript"><a class="header" href="#typescript">TypeScript</a></h3>
 <p>A global is available with automatically generated functions in camelCaps. Eg:</p>
-<pre><code class="language-typescript">import * as tr from &quot;anki/i18n&quot;;
+<pre><code class="language-typescript">import * as tr from &quot;../lib/ftl&quot;;
 
 console.log(tr.statisticsCardsPerDay({ count: 5 }));
 </code></pre>
@@ -438,7 +438,7 @@ console.log(tr.statisticsCardsPerDay({ count: 5 }));
 them to see what the text says.</p>
 <p>To make use of the translations, they first need to be fetched from the backend.
 You'll need to specify the modules you want included, eg:</p>
-<pre><code class="language-typescript">import { setupI18n, ModuleName } from &quot;anki/i18n&quot;;
+<pre><code class="language-typescript">import { setupI18n, ModuleName } from &quot;../lib/i18n&quot;;
 
 await setupI18n({ modules: [ModuleName.STATISTICS] });
 </code></pre>
