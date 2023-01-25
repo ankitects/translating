@@ -14,3 +14,7 @@ information, and we can get an account created for you:
 - The username you'd like to use (for example, 'bob5')
 - Please include the following text in your message: "I license any translations I contribute under the [3-clause
   BSD license](https://opensource.org/licenses/BSD-3-Clause)."
+
+After you've contributed some translations, if you'd like to be added to Anki's
+About screen, please send a message and we'll gladly add you (or you can submit
+a PR if you know how).
