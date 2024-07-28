@@ -5,7 +5,7 @@ help would be most appreciated!
 
 Translations can be done through our [online translation interface](https://i18n.ankiweb.net).
 To make changes, you will need an account. Please post a private message on the
-[support site](https://anki.tenderapp.com/discussions/private) with the following
+[Forum](https://forums.ankiweb.net/u/dae/summary) with the following
 information, and we can get an account created for you:
 
 - The language or languages you'd like to translate.
