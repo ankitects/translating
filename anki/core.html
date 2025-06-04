@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,11 +7,10 @@
 
 
         <!-- Custom HTML head -->
-        
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
         <link rel="icon" href="../favicon.svg">
         <link rel="shortcut icon" href="../favicon.png">
@@ -25,26 +24,41 @@
         <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="../highlight.css">
-        <link rel="stylesheet" href="../tomorrow-night.css">
-        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="../custom.css">
 
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
     </head>
     <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -57,56 +71,66 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="../intro.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../anki/core.html" class="active"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="../anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="../anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="../anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="../ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="../ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -136,7 +160,7 @@
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -161,7 +185,7 @@ can be seen <a href="https://i18n.ankiweb.net/en-GB/core/">here</a>.</p>
 native language and click Save (or press the Enter key).</p>
 <p>Under the English text, many strings will contain a comment to help you understand
 where the string is being used, or to give an example of how it appears.</p>
-<p>&quot;Context&quot; is the short name for this string, and may sometimes give you a hint
+<p>"Context" is the short name for this string, and may sometimes give you a hint
 as to where it is used or what it is trying to represent.</p>
 <h2 id="variables"><a class="header" href="#variables">Variables</a></h2>
 <p><img src="./variable@2x.png" alt="" /></p>
@@ -173,7 +197,7 @@ attempt to translate the text inside the <code>{...}</code> part. You can click 
 translation.</p>
 <h2 id="plurals"><a class="header" href="#plurals">Plurals</a></h2>
 <p>Many languages change words depending on number. For example, English uses
-&quot;1 cat&quot;, but &quot;3 cats&quot;.</p>
+"1 cat", but "3 cats".</p>
 <p>Some of the strings to translate will look like this:</p>
 <p><img src="./simple-plurals@2x.png" alt="" /></p>
 <p>In the top part, you can see there are two forms for English - the <code>one</code>
@@ -190,7 +214,7 @@ flexibility. You can access the advanced mode by clicking on the FTL icon
 on the bottom left. The previous example then looks like this:</p>
 <p><img src="./advanced-plurals@2x.png" alt="" /></p>
 <p>The first line is the unique identifier for this message - it can also be
-seen in the &quot;CONTEXT&quot; label near the comments.</p>
+seen in the "CONTEXT" label near the comments.</p>
 <p>The rest of the text means the following:</p>
 <ul>
 <li>Check the value of amount</li>
@@ -220,7 +244,7 @@ space to the start of each line except the first.</p>
 flexibility becomes useful when your language doesn't fit well with the
 structure of the original English string.</p>
 <p>For example, when viewing cards in the Browse screen in Anki, Anki shows
-new cards with a number, such as &quot;New #1&quot;, or &quot;New #532&quot;. The English
+new cards with a number, such as "New #1", or "New #532". The English
 doesn't use plurals in this case, but other languages may need to.</p>
 <p>If you were translating this into Spanish, you'd see the following screen:</p>
 <p><img src="./advanced-plurals2@2x.png" alt="" /></p>
@@ -233,7 +257,7 @@ to read:</p>
 </code></pre>
 <p>Here's another example. In this case the English text is using plurals
 as well, but only a small part needs to change. When translating to Polish,
-the &quot;used by&quot; portion needs to change as well. So the default editing
+the "used by" portion needs to change as well. So the default editing
 screen is not sufficient:</p>
 <p><img src="./advanced-plurals3@2x.png" alt="" /></p>
 <p>To fix this, we click on the FTL button to get a blank template:</p>
@@ -264,11 +288,11 @@ and the third starts with a <code>.</code>:</p>
   or three lines.]
 </code></pre>
 <p>When you need to use a <code>[</code> or <code>.</code> character at the start of a a line
-in a multi-line string, please escape it by wrapping it in <code>{&quot;</code> and
-<code>&quot;}</code> - for example:</p>
+in a multi-line string, please escape it by wrapping it in <code>{"</code> and
+<code>"}</code> - for example:</p>
 <pre><code>some-translation =
-  {&quot;[&quot;}This is a translation that occurs over
-  {&quot;.&quot;}.. two
+  {"["}This is a translation that occurs over
+  {"."}.. two
   or three lines.]
 </code></pre>
 <h2 id="testing"><a class="header" href="#testing">Testing</a></h2>
@@ -292,7 +316,7 @@ translatable, please report this on the support site so it can be fixed.</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next" href="../anki/desktop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../anki/desktop.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -306,7 +330,7 @@ translatable, please report this on the support site so it can be fixed.</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next" href="../anki/desktop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../anki/desktop.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -316,21 +340,22 @@ translatable, please report this on the support site so it can be fixed.</p>
 
 
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
 
 
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 
 
+    </div>
     </body>
 </html>
