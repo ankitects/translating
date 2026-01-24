@@ -224,7 +224,7 @@ into a separate string:
 
 ```properties
 search-invalid-search = Invalid search: { $reason }
-search-invalid-added = 'added:' must be followed by a positive number reason.
+search-invalid-added = 'added:' must be followed by a positive number of days.
 search-invalid-edited = 'edited:' must be followed by a positive number of days.
 ```
 
