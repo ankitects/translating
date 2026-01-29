@@ -212,7 +212,7 @@ This old style will still work for now, but will be removed in the future.
 ## Repeated Content
 
 Sometimes you will need multiple translations that have some text shared between
-them. For example, the search code has a list of separate error message, such as:
+them. For example, the search code has a list of separate error messages, such as:
 
 ```properties
 search-invalid-added = Invalid search: 'added:' must be followed by a positive number of days.
