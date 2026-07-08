@@ -326,14 +326,14 @@ msg = tr(TR.ADDONS_YOU_HAVE_COUNT, count=3)
 <p>This old style will still work for now, but will be removed in the future.</p>
 <h2 id="repeated-content"><a class="header" href="#repeated-content">Repeated Content</a></h2>
 <p>Sometimes you will need multiple translations that have some text shared between
-them. For example, the search code has a list of separate error message, such as:</p>
+them. For example, the search code has a list of separate error messages, such as:</p>
 <pre><code class="language-properties">search-invalid-added = Invalid search: 'added:' must be followed by a positive number of days.
 search-invalid-edited = Invalid search: 'edited:' must be followed by a positive number of days.
 </code></pre>
 <p>Since there are a lot of separate messages with the same prefix, we can split it off
 into a separate string:</p>
 <pre><code class="language-properties">search-invalid-search = Invalid search: { $reason }
-search-invalid-added = 'added:' must be followed by a positive number reason.
+search-invalid-added = 'added:' must be followed by a positive number of days.
 search-invalid-edited = 'edited:' must be followed by a positive number of days.
 </code></pre>
 <p>The code can then compose the message from two separate entries. Note that we're
