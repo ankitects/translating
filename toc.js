@@ -8,7 +8,7 @@ class MDBookSidebarScrollbox extends HTMLElement {
         super();
     }
     connectedCallback() {
-        this.innerHTML = '<ol class="chapter"><li class="chapter-item expanded "><a href="intro.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="anki/intro.html"><strong aria-hidden="true">2.</strong> Translating Anki</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="anki/core.html"><strong aria-hidden="true">2.1.</strong> Core Interface</a></li><li class="chapter-item expanded "><a href="anki/desktop.html"><strong aria-hidden="true">2.2.</strong> Desktop Interface</a></li><li class="chapter-item expanded "><a href="anki/manual.html"><strong aria-hidden="true">2.3.</strong> Manual</a></li><li class="chapter-item expanded "><a href="anki/developers.html"><strong aria-hidden="true">2.4.</strong> For Developers</a></li></ol></li><li class="chapter-item expanded "><a href="ankimobile.html"><strong aria-hidden="true">3.</strong> Translating AnkiMobile</a></li><li class="chapter-item expanded "><a href="ankidroid.html"><strong aria-hidden="true">4.</strong> Translating AnkiDroid</a></li></ol>';
+        this.innerHTML = '<ol class="chapter"></ol>';
         // Set the current, active page, and reveal it if it's hidden
         let current_page = document.location.href.toString().split("#")[0].split("?")[0];
         if (current_page.endsWith("/")) {
