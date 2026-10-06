@@ -17,3 +17,17 @@ additional-css = ["custom.css"]
 optional = true
 warning-policy = "warn"
 follow-web-links = true
+
+
+[output.html.redirect]
+"/index.html" = "https://docs.ankiweb.net/translators/intro"
+"/intro.html" = "https://docs.ankiweb.net/translators/intro" 
+"/ankidroid.html" = "https://docs.ankiweb.net/translators/ankidroid" 
+"/ankimobile.html" = "https://docs.ankiweb.net/translators/ankimobile" 
+"/anki/index.html" = "https://docs.ankiweb.net/translators/anki/intro"
+"/anki/core.html" = "https://docs.ankiweb.net/translators/anki/core" 
+"/anki/desktop.html" = "https://docs.ankiweb.net/translators/anki/desktop" 
+"/anki/intro.html" = "https://docs.ankiweb.net/translators/anki/intro" 
+"/anki/manual.html" = "https://docs.ankiweb.net/translators/anki/manual" 
+"/anki/developers.html" = "https://docs.ankiweb.net/translators/anki/developers" 
+
